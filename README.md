@@ -3,7 +3,7 @@
 > **Real-time, hardware-accelerated AI vocal separation and dual-bus audio routing engine built in .NET 10 and AMD ROCm for live streaming and performance workflows.**
 
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
-[![AMD ROCm](https://img.shields.io/badge/AMD-ROCm%207.1%20%7C%20DirectML-ED1C24?logo=amd)](https://www.amd.com/en/products/software/rocm.html)
+[![AMD ROCm](https://img.shields.io/badge/AMD-ROCm%20%7C%20DirectML-ED1C24?logo=amd)](https://www.amd.com/en/products/software/rocm.html)
 [![Avalonia UI](https://img.shields.io/badge/UI-Avalonia%2011-0D47A1)](https://avaloniaui.net/)
 [![Version](https://img.shields.io/badge/Release-v1.0.0%20GA-10B981)]()
 
