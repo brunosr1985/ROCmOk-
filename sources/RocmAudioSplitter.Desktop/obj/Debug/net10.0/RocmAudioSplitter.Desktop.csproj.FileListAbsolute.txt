@@ -1,7 +1,0 @@
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\RocmAudioSplitter.Desktop.csproj.AssemblyReference.cache
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\Avalonia\resources
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\RocmAudioSplitter.Desktop.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\RocmAudioSplitter.Desktop.AssemblyInfoInputs.cache
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\RocmAudioSplitter.Desktop.AssemblyInfo.cs
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Desktop\obj\Debug\net10.0\RocmAudioSplitter.Desktop.csproj.CoreCompileInputs.cache

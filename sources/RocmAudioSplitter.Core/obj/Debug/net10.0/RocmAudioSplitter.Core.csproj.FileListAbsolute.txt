@@ -1,5 +1,0 @@
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Debug\net10.0\RocmAudioSplitter.Core.csproj.AssemblyReference.cache
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Debug\net10.0\RocmAudioSplitter.Core.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Debug\net10.0\RocmAudioSplitter.Core.AssemblyInfoInputs.cache
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Debug\net10.0\RocmAudioSplitter.Core.AssemblyInfo.cs
-C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Debug\net10.0\RocmAudioSplitter.Core.csproj.CoreCompileInputs.cache
