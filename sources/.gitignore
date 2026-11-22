@@ -1,0 +1,35 @@
+## .NET Build & Output Artifacts (recursivo para subpastas como sources/)
+**/bin/
+**/obj/
+**/publish/
+**/dist/
+**/TestResults/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.nupkg
+*.snupkg
+*.Build.CppClean.log
+*.tlog
+
+## Visual Studio / VS Code / JetBrains
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## AI Models & Audio Test Artifacts
+*.onnx
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+## OS & Logs
+Thumbs.db
+.DS_Store
+*.log
