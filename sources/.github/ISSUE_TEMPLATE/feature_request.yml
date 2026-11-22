@@ -1,0 +1,19 @@
+name: Feature Request
+description: Propose a new streamer workflow feature, DSP module, or model integration
+title: "[Enhancement]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Streamer / Musician Use Case
+      description: Describe the live streaming or performance scenario this solves.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution & Latency Impact
+      description: Outline how it should work and confirm it preserves low-latency real-time execution.
+    validations:
+      required: true

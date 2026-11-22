@@ -1,0 +1,42 @@
+name: .NET 10 Build & Release Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build Release (Zero Warnings)
+        run: dotnet build -c Release --no-restore
+
+      - name: Publish Self-Contained Win-x64 Artifact
+        run: |
+          dotnet publish RocmAudioSplitter.Desktop\RocmAudioSplitter.Desktop.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained true `
+            -p:PublishSingleFile=false `
+            -o .\publish\win-x64
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RocmAudioSplitter-win-x64
+          path: .\publish\win-x64\
+          retention-days: 14

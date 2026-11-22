@@ -1,0 +1,38 @@
+name: Bug Report
+description: Report an audio routing, ROCm/DirectML inference, or UI issue
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an issue! Please attach your diagnostic log from `%AppData%\RocmAudioSplitter\logs\` if available.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Clear description of the bug and expected behavior.
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: GPU, ROCm / Driver & Windows Build
+      placeholder: "e.g., Radeon RX 9060 XT, Adrenalin 26.x / ROCm 7.2, Windows 11 24H2"
+    validations:
+      required: true
+  - type: dropdown
+    id: capture_mode
+    attributes:
+      label: Audio Capture Mode
+      options:
+        - Process Isolation ([App] Chrome / Spotify / Edge)
+        - System Master Output (All Apps)
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Diagnostic Log Snippet
+      description: Paste relevant lines from engine_YYYY-MM-DD.log (accessible via the Logs button in the app).
+      render: text
