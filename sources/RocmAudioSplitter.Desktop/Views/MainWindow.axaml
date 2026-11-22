@@ -1,0 +1,246 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RocmAudioSplitter.Desktop.ViewModels"
+        x:Class="RocmAudioSplitter.Desktop.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="ROCm Real-Time Vocal Splitter (.NET 10)"
+        Width="1140" Height="700"
+        MinWidth="880" MinHeight="560"
+        Background="#0E1016"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid RowDefinitions="Auto,*,Auto" Margin="14">
+
+        <!-- TOP BAR: GPU Hardware + Hotkeys + Start/Stop -->
+        <Border Grid.Row="0" Classes="Card" Padding="12" Margin="0,0,0,10">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Spacing="2">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <TextBlock Text="ROCm VOCAL SPLITTER" FontSize="16" FontWeight="Bold" Foreground="#F3F6FC" />
+                        <Border Background="#1F2937" CornerRadius="6" Padding="8,2" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding EngineStatusBadge}" FontSize="11" FontWeight="Bold" Foreground="#38BDF8" />
+                        </Border>
+                    </StackPanel>
+                    <TextBlock Text="{Binding GpuHeaderText}" FontSize="12" Foreground="#CBD5E1" />
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <TextBlock Text="{Binding RocmStatusText}" FontSize="11" Foreground="#10B981" />
+                        <TextBlock Text="{Binding HotkeySummaryText}" FontSize="11" Foreground="#94A3B8" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                    <Button Content="Refresh Devices" Command="{Binding RefreshAudioEndpointsCommand}" Padding="12,8" />
+                    <Button Content="Start / Stop Live Engine"
+                            Command="{Binding ToggleEngineCommand}"
+                            Background="#0284C7"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            Padding="16,8" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- MAIN WORKSPACE COM SCROLL AUTOMÁTICO -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,10">
+            <Grid ColumnDefinitions="1.1*,1*">
+
+                <!-- LEFT COLUMN: Presets JSON, Modelo ONNX & Roteamento WASAPI -->
+                <StackPanel Grid.Column="0" Spacing="10" Margin="0,0,10,0">
+
+                    <!-- EPIC 5: STREAMER PROFILES (JSON) -->
+                    <Border Classes="Card" Padding="12">
+                        <StackPanel Spacing="6">
+                            <TextBlock Classes="SectionTitle" Text="1. STREAMER PROFILES (JSON PRESETS)" Margin="0,0,0,2" />
+                            <Grid ColumnDefinitions="*,Auto,Auto">
+                                <ComboBox Grid.Column="0"
+                                          ItemsSource="{Binding Profiles}"
+                                          SelectedItem="{Binding SelectedProfile}"
+                                          HorizontalAlignment="Stretch"
+                                          Margin="0,0,6,0" />
+                                <Button Grid.Column="1" Content="Save" Command="{Binding SaveCurrentProfileCommand}" Padding="10,6" Margin="0,0,6,0" />
+                                <Button Grid.Column="2" Content="Delete" Command="{Binding DeleteSelectedProfileCommand}" Padding="10,6" />
+                            </Grid>
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBox Grid.Column="0" Text="{Binding NewProfileName}" PlaceholderText="New preset name (e.g. Live F1 / Karaoke)..." Margin="0,0,6,0" />
+                                <Button Grid.Column="1" Content="+ Create Preset" Command="{Binding CreateNewProfileCommand}" Padding="10,6" />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- MODELO ONNX -->
+                    <Border Classes="Card" Padding="12">
+                        <StackPanel Spacing="6">
+                            <TextBlock Classes="SectionTitle" Text="2. ONNX MODEL (MDX-NET / KARAOKE)" Margin="0,0,0,2" />
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBox Grid.Column="0" Text="{Binding ModelPath}" PlaceholderText="Select UVR_MDXNET_KARA_2.onnx or Inst_HQ_5.onnx..." Margin="0,0,8,0" />
+                                <Button Grid.Column="1" Content="Browse..." Click="OnBrowseModelClick" Padding="12,6" />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- ROTEAMENTO WASAPI -->
+                    <Border Classes="Card" Padding="12">
+                        <StackPanel Spacing="8">
+                            <TextBlock Classes="SectionTitle" Text="3. WASAPI AUDIO ROUTING MATRIX" Margin="0,0,0,2" />
+
+                            <StackPanel Spacing="2">
+                                <TextBlock Text="Music Source (Process Isolation or System)" FontSize="11" Foreground="#94A3B8" />
+                                <ComboBox ItemsSource="{Binding AudioSources}"
+                                          SelectedItem="{Binding SelectedAudioSource}"
+                                          HorizontalAlignment="Stretch"
+                                          IsEnabled="{Binding !IsRunning}" />
+                            </StackPanel>
+
+                            <StackPanel Spacing="2">
+                                <TextBlock Text="Live Microphone Input" FontSize="11" Foreground="#94A3B8" />
+                                <ComboBox ItemsSource="{Binding MicrophoneDevices}"
+                                          SelectedItem="{Binding SelectedMicrophone}"
+                                          HorizontalAlignment="Stretch"
+                                          IsEnabled="{Binding !IsRunning}" />
+                            </StackPanel>
+
+                            <StackPanel Spacing="2">
+                                <TextBlock Text="Bus 1 — Local Headphones (Full Track + Sync Delay)" FontSize="11" Foreground="#94A3B8" />
+                                <ComboBox ItemsSource="{Binding HeadphoneDevices}"
+                                          SelectedItem="{Binding SelectedHeadphone}"
+                                          HorizontalAlignment="Stretch"
+                                          IsEnabled="{Binding !IsRunning}" />
+                            </StackPanel>
+
+                            <StackPanel Spacing="2">
+                                <TextBlock Text="Bus 2 — Stream Output / Virtual Cable (OBS &amp; Meld Studio)" FontSize="11" Foreground="#94A3B8" />
+                                <ComboBox ItemsSource="{Binding StreamOutputDevices}"
+                                          SelectedItem="{Binding SelectedStreamOutput}"
+                                          HorizontalAlignment="Stretch"
+                                          IsEnabled="{Binding !IsRunning}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+
+                <!-- RIGHT COLUMN: Real-Time DSP Mixer & 60fps VU Meters -->
+                <StackPanel Grid.Column="1" Spacing="10">
+
+                    <Border Classes="Card" Padding="12">
+                        <StackPanel Spacing="6">
+                            <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,2">
+                                <TextBlock Classes="SectionTitle" Text="4. LIVE DSP MIXER &amp; DELAY SYNC" Margin="0" VerticalAlignment="Center" />
+                                <ToggleButton Grid.Column="1"
+                                              Content="Mute Mic (Ctrl+Alt+M)"
+                                              IsChecked="{Binding IsMicMuted}"
+                                              FontSize="11"
+                                              Padding="10,4" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto">
+                                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,8,4">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <TextBlock Text="Vocal Suppression" FontSize="11" />
+                                        <TextBlock Grid.Column="1" Text="{Binding VocalSuppressionPercent, StringFormat='{}{0:F0}%'}" FontSize="11" Foreground="#38BDF8" />
+                                    </Grid>
+                                    <Slider Minimum="0" Maximum="100" Value="{Binding VocalSuppressionPercent}" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="0" Grid.Column="1" Margin="8,0,0,4">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <TextBlock Text="Instrumental Level" FontSize="11" />
+                                        <TextBlock Grid.Column="1" Text="{Binding InstrumentalGainPercent, StringFormat='{}{0:F0}%'}" FontSize="11" Foreground="#38BDF8" />
+                                    </Grid>
+                                    <Slider Minimum="0" Maximum="150" Value="{Binding InstrumentalGainPercent}" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,8,4">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <TextBlock Text="Live Mic Gain" FontSize="11" />
+                                        <TextBlock Grid.Column="1" Text="{Binding MicGainDb, StringFormat='{}{0:+0.0;-0.0;0.0} dB'}" FontSize="11" Foreground="#38BDF8" />
+                                    </Grid>
+                                    <Slider Minimum="-20" Maximum="20" Value="{Binding MicGainDb}" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="1" Margin="8,0,0,4">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <TextBlock Text="Headphone Volume" FontSize="11" />
+                                        <TextBlock Grid.Column="1" Text="{Binding HeadphoneGainPercent, StringFormat='{}{0:F0}%'}" FontSize="11" Foreground="#38BDF8" />
+                                    </Grid>
+                                    <Slider Minimum="0" Maximum="150" Value="{Binding HeadphoneGainPercent}" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <TextBlock Text="Manual Sync Offset (Fine-Tune)" FontSize="11" />
+                                        <TextBlock Grid.Column="1" Text="{Binding ManualSyncOffsetMs, StringFormat='{}{0:+0;-0;0} ms'}" FontSize="11" Foreground="#F59E0B" />
+                                    </Grid>
+                                    <Slider Minimum="-50" Maximum="50" Value="{Binding ManualSyncOffsetMs}" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Classes="Card" Padding="12">
+                        <StackPanel Spacing="6">
+                            <TextBlock Classes="SectionTitle" Text="5. REAL-TIME PEAK METERS (60 FPS)" Margin="0,0,0,2" />
+
+                            <Grid ColumnDefinitions="130,*" Margin="0,1">
+                                <TextBlock Text="Music Source In" FontSize="11" VerticalAlignment="Center" />
+                                <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding MusicVuLevel}" Height="10" Foreground="#38BDF8" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="130,*" Margin="0,1">
+                                <TextBlock Text="AI Instrumental" FontSize="11" VerticalAlignment="Center" />
+                                <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding AiInstrumentalVuLevel}" Height="10" Foreground="#10B981" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="130,*" Margin="0,1">
+                                <TextBlock Text="Live Microphone" FontSize="11" VerticalAlignment="Center" />
+                                <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding MicVuLevel}" Height="10" Foreground="#A855F7" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="130,*" Margin="0,1">
+                                <TextBlock Text="Bus 1: Headphones" FontSize="11" VerticalAlignment="Center" />
+                                <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding HeadphoneVuLevel}" Height="10" Foreground="#F59E0B" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="130,*" Margin="0,1">
+                                <TextBlock Text="Bus 2: OBS Stream" FontSize="11" VerticalAlignment="Center" />
+                                <ProgressBar Grid.Column="1" Minimum="0" Maximum="100" Value="{Binding StreamVuLevel}" Height="10" Foreground="#EC4899" />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- BOTTOM TELEMETRY HUD -->
+        <Border Grid.Row="2" Classes="Card" Padding="12,8">
+            <Grid ColumnDefinitions="*,*,*,*,*,*">
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="BACKEND" FontSize="10" Foreground="#64748B" />
+                    <TextBlock Text="{Binding ActiveBackendLabel}" FontSize="13" FontWeight="Bold" Foreground="#38BDF8" />
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="LAST GPU INFER" FontSize="10" Foreground="#64748B" />
+                    <TextBlock Text="{Binding LastInferenceText}" FontSize="13" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="AVG GPU INFER" FontSize="10" Foreground="#64748B" />
+                    <TextBlock Text="{Binding AvgInferenceText}" FontSize="13" FontWeight="Bold" Foreground="#10B981" />
+                </StackPanel>
+                <StackPanel Grid.Column="3">
+                    <TextBlock Text="TOTAL SYNC DELAY" FontSize="10" Foreground="#64748B" />
+                    <TextBlock Text="{Binding TotalSyncDelayText}" FontSize="13" FontWeight="Bold" Foreground="#F59E0B" />
+                </StackPanel>
+                <StackPanel Grid.Column="4">
+                    <TextBlock Text="PROCESSED CHUNKS" FontSize="10" Foreground="#64748B" />
+                    <TextBlock Text="{Binding ProcessedChunksText}" FontSize="13" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel Grid.Column="5">
+                    <TextBlock Text="BUFFER UNDERRUNS" FontSize="10" Foreground="#64748B" />
+                    <TextBlock Text="{Binding UnderrunsText}" FontSize="13" FontWeight="Bold" Foreground="#EF4444" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
