@@ -66,8 +66,8 @@ RocmAudioSplitter/
 
 ```powershell
 # Clone the repository
-git clone https://github.com/<your-username>/RocmAudioSplitter.git
-cd RocmAudioSplitter
+git clone https://github.com/brunosr1985/ROCmOk-.git
+cd ./ROCmOk-/sources
 
 # Build the solution in Release mode
 dotnet build -c Release
