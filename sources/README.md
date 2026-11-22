@@ -248,7 +248,7 @@ Feature requests and architectural proposals should:
 
 \### ✅ v1.0.0 GA (Current Release)
 
-\* AMD ROCm 7.1 + DirectML fallback ONNX inference engine (`MDX-Net`).
+\* AMD ROCm (up to 10.2+) / MIGraphX + DirectML fallback ONNX inference engine (`MDX-Net`).
 
 \* Windows 11 per-process WASAPI loopback isolation \& dual-bus delay-compensated mixer.
 

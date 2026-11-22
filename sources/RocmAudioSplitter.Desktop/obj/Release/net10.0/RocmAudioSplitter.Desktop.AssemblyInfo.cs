@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RocmAudioSplitter.Desktop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77763d430d4fcfb5aec442f0975b8a5c88ca6053")]
 [assembly: System.Reflection.AssemblyProductAttribute("RocmAudioSplitter.Desktop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RocmAudioSplitter.Desktop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

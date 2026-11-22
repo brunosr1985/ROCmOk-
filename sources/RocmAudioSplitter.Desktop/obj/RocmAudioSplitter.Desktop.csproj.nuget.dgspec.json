@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj": {}
+    "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj": {
+    "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj",
+        "projectUniqueName": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj",
         "projectName": "RocmAudioSplitter.Core",
-        "projectPath": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj",
+        "projectPath": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Core\\obj\\",
+        "outputPath": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -368,14 +368,14 @@
         }
       }
     },
-    "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj": {
+    "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj",
+        "projectUniqueName": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj",
         "projectName": "RocmAudioSplitter.Desktop",
-        "projectPath": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj",
+        "projectPath": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Desktop\\obj\\",
+        "outputPath": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Desktop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -398,8 +398,8 @@
             "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj": {
-                "projectPath": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj"
+              "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj": {
+                "projectPath": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Core\\RocmAudioSplitter.Core.csproj"
               }
             }
           }

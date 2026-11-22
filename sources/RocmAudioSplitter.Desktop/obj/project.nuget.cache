@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5IPtUNGbKjo=",
+  "dgSpecHash": "yH77JaGOpWM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\bruno\\Downloads\\sources-20261117T114549Z-1-001\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj",
+  "projectFilePath": "D:\\Projetos novos\\ROCmOk-\\sources\\RocmAudioSplitter.Desktop\\RocmAudioSplitter.Desktop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno\\.nuget\\packages\\avalonia\\12.1.6\\avalonia.12.1.6.nupkg.sha512",
     "C:\\Users\\bruno\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.27548.20260419\\avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",

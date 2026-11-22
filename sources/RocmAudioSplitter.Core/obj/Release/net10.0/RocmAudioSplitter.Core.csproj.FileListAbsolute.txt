@@ -10,3 +10,16 @@ C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitte
 C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Release\net10.0\refint\RocmAudioSplitter.Core.dll
 C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.pdb
 C:\Users\bruno\Downloads\sources-20261117T114549Z-1-001\sources\RocmAudioSplitter.Core\obj\Release\net10.0\ref\RocmAudioSplitter.Core.dll
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.csproj.AssemblyReference.cache
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.AssemblyInfoInputs.cache
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.AssemblyInfo.cs
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.csproj.CoreCompileInputs.cache
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.sourcelink.json
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.dll
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\refint\RocmAudioSplitter.Core.dll
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\RocmAudioSplitter.Core.pdb
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\bin\Release\net10.0\RocmAudioSplitter.Core.deps.json
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\bin\Release\net10.0\RocmAudioSplitter.Core.dll
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\bin\Release\net10.0\RocmAudioSplitter.Core.pdb
+D:\Projetos novos\ROCmOk-\sources\RocmAudioSplitter.Core\obj\Release\net10.0\ref\RocmAudioSplitter.Core.dll
